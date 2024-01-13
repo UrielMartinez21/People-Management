@@ -1,0 +1,99 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bienvenido.css' %}">
+</head>
+
+<body>
+    <section class="contenedor">
+        <h1>Administración de usuarios y domicilios</h1>
+        <div>
+            <h2>Usuarios</h2>
+            <p>Numero de personas: {{no_usuarios}}</p>
+            <div>
+                <div>
+                    <button class="boton-crear">
+                        <a href="nuevo_usuario/" class="quitar-estilo-link">Nuevo usuario</a>
+                    </button>
+                </div>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for usuario in usuarios %}
+                        <tr>
+                            <td>{{usuario.id}}</td>
+                            <td>{{usuario.nombre}}</td>
+                            <td>{{usuario.apellido}}</td>
+                            <td>{{usuario.email}}</td>
+                            <td class="boton-ver">
+                                <a href="detalle_usuario/{{usuario.id}}">Ver detalles</a>
+                            </td>
+                            <td class="boton-editar">
+                                <a href="editar_usuario/{{usuario.id}}">Editar</a>
+                            </td>
+                            <td class="boton-eliminar">
+                                <a href="eliminar_usuario/{{usuario.id}}">Eliminar</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    
+        <div>
+            <h2>Domicilios</h2>
+            <p>Numero de domicilios: {{no_domicilios}}</p>
+            <div>
+                <div>
+                    <button class="boton-crear">
+                        <a href="nuevo_domicilio/">Nuevo domicilio</a>
+                    </button>
+                </div>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Calle</th>
+                            <th>Numero</th>
+                            <th>Localidad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for domicilio in domicilios %}
+                        <tr>
+                            <td>{{domicilio.id}}</td>
+                            <td>{{domicilio.calle}}</td>
+                            <td>{{domicilio.numero}}</td>
+                            <td>{{domicilio.localidad}}</td>
+                            <td class="boton-ver">
+                                <a href="detalle_domicilio/{{domicilio.id}}">Ver detalles</a>
+                            </td>
+                            <td class="boton-editar">
+                                <a href="editar_domicilio/{{domicilio.id}}">Editar</a>
+                            </td>
+                            <td class="boton-eliminar">
+                                <a href="eliminar_domicilio/{{domicilio.id}}">Eliminar</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

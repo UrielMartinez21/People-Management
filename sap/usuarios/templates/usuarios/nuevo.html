@@ -1,0 +1,24 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo usuario</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/nuevo_usuario.css' %}">
+</head>
+<body>
+    <h1>Nuevo usuario</h1>
+    <form method="POST">
+        <table>
+            {{formaUsuario}}
+        </table>
+        <input type="submit" value="Guardar">
+        {% csrf_token %}
+    </form>
+    <div>
+        <a href="{% url 'index' %}">Regresar a inicio</a>
+    </div>
+</body>
+</html>

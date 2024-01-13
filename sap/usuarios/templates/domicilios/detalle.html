@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles de {{domicilio.calle}}</title>
+</head>
+<body>
+    <div>
+        Los detalles del domicilio son
+        <p>ID: {{domicilio.id}}</p>
+        <p>Calle: {{domicilio.calle}}</p>
+        <p>Numero: {{domicilio.numero}}</p>
+        <p>Localidad: {{domicilio.localidad}}</p>
+    </div>
+    <div>
+        <a href="{% url 'index' %}">Volver</a>
+    </div>
+</body>
+</html>
